@@ -40,6 +40,8 @@ public class Nasabah extends Jenis {
         return super.getLimit();
     }
 
+    public int getProteksi() { return super.getProteksi(); }
+
     public String getNamaJenis() {
         return super.getNamaJenis();
     }
