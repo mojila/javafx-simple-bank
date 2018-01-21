@@ -75,7 +75,7 @@ public class Transfer implements Initializable {
         data.getDataNasabah().forEach((key, value) -> {
             if (value.getNomorRekening() == session.getNomorRekening() || value.getNomorRekening() == session.getNomorRekeningAntrian()) {
                 if (value.getSaldo() != 0 && value.getSaldo() >= amount) {
-                    if (session.getNomorRekening() != 0 && amount <= value.getLimit()) {
+                    if (session.getNomorRekening() != 0 && amount <= value.getLimit() && value.getSaldo() - amount >= value.getProteksi()) {
                         try {
                             value.withdraw(amount);
                             transfer(amount);
