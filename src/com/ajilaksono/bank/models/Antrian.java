@@ -1,25 +1,24 @@
 package com.ajilaksono.bank.models;
 
-public class Antrian {
-    private int nomorUrut, nomorRekening;
-    private String nama;
+public class Antrian extends Nasabah {
+    private int nomorUrut;
 
     public Antrian(int nomorUrut, int nomorRekening, String nama) {
+        super(nomorRekening, nama);
         this.nomorUrut = nomorUrut;
-        this.nomorRekening = nomorRekening;
-        this.nama = nama;
     }
 
     public int getNomorUrut() {
         return nomorUrut;
     }
 
+    @Override
     public int getNomorRekening() {
-        return nomorRekening;
+        return super.getNomorRekening();
     }
 
+    @Override
     public String getNama() {
-        return nama;
+        return super.getNama();
     }
-
 }

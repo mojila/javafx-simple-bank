@@ -32,8 +32,5 @@ public class Jenis {
         return limit;
     }
 
-    public int getProteksi() {
-        return proteksi;
-    }
-
+    public int getProteksi() { return proteksi; }
 }

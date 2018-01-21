@@ -4,6 +4,11 @@ public class Nasabah extends Jenis {
     private int nomorRekening, saldo;
     private String nama, pin;
 
+    Nasabah(int nomorRekening, String nama) {
+        this.nomorRekening = nomorRekening;
+        this.nama = nama;
+    }
+
     Nasabah(int nomorRekening, int saldo, String nama, String pin, String namaJenis) {
         this.nomorRekening = nomorRekening;
         this.saldo = saldo;
