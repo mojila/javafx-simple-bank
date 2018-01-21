@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="210.0" prefWidth="296.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ajilaksono.bank.controllers.Transfer">
+    <ChoiceBox fx:id="inputRekeningTujuan" layoutX="73.0" layoutY="60.0" prefWidth="150.0" />
+   <TextField fx:id="inputNamaTujuan" editable="false" layoutX="74.0" layoutY="92.0" promptText="Nama Tujuan" />
+   <TextField fx:id="inputAmountTransfer" layoutX="74.0" layoutY="124.0" promptText="Jumlah Transfer" />
+   <Button layoutX="119.0" layoutY="159.0" mnemonicParsing="false" onAction="#onKirimClick" text="Transfer" />
+   <TextField fx:id="inputSaldoTransfer" editable="false" layoutX="74.0" layoutY="26.0" />
+</AnchorPane>

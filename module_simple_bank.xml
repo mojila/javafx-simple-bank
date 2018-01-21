@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_simple_bank" default="compile.module.simple_bank">
+  <dirname property="module.simple_bank.basedir" file="${ant.file.module_simple_bank}"/>
+  
+  <property name="module.jdk.home.simple_bank" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.simple_bank" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.simple_bank" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.simple_bank" value="-encoding UTF-8 -source 1.8 -target 1.8 ${compiler.args}"/>
+  
+  <property name="simple_bank.output.dir" value="${module.simple_bank.basedir}/out/production/Simple Bank"/>
+  <property name="simple_bank.testoutput.dir" value="${module.simple_bank.basedir}/out/test/Simple Bank"/>
+  
+  <path id="simple_bank.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="simple_bank.module.production.classpath">
+    <path refid="${module.jdk.classpath.simple_bank}"/>
+  </path>
+  
+  <path id="simple_bank.runtime.production.module.classpath">
+    <pathelement location="${simple_bank.output.dir}"/>
+  </path>
+  
+  <path id="simple_bank.module.classpath">
+    <path refid="${module.jdk.classpath.simple_bank}"/>
+    <pathelement location="${simple_bank.output.dir}"/>
+  </path>
+  
+  <path id="simple_bank.runtime.module.classpath">
+    <pathelement location="${simple_bank.testoutput.dir}"/>
+    <pathelement location="${simple_bank.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.simple_bank">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.simple_bank">
+    <patternset refid="excluded.from.module.simple_bank"/>
+  </patternset>
+  
+  <path id="simple_bank.module.sourcepath">
+    <dirset dir="${module.simple_bank.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.simple_bank" depends="compile.module.simple_bank.production,compile.module.simple_bank.tests" description="Compile module Simple Bank"/>
+  
+  <target name="compile.module.simple_bank.production" depends="register.custom.compilers" description="Compile module Simple Bank; production classes">
+    <mkdir dir="${simple_bank.output.dir}"/>
+    <javac2 destdir="${simple_bank.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.simple_bank}/javac">
+      <compilerarg line="${compiler.args.simple_bank}"/>
+      <bootclasspath refid="simple_bank.module.bootclasspath"/>
+      <classpath refid="simple_bank.module.production.classpath"/>
+      <src refid="simple_bank.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.simple_bank"/>
+    </javac2>
+    
+    <copy todir="${simple_bank.output.dir}">
+      <fileset dir="${module.simple_bank.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.simple_bank.tests" depends="register.custom.compilers,compile.module.simple_bank.production" description="compile module Simple Bank; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.simple_bank" description="cleanup module">
+    <delete dir="${simple_bank.output.dir}"/>
+    <delete dir="${simple_bank.testoutput.dir}"/>
+  </target>
+</project>

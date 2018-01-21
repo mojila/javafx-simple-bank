@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="209.0" prefWidth="215.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ajilaksono.bank.controllers.Portal">
+   <Button layoutX="87.0" layoutY="63.0" mnemonicParsing="false" onAction="#onATMClick" text="ATM" />
+   <Button layoutX="63.0" layoutY="170.0" mnemonicParsing="false" onAction="#onDaftarNasabahClick" text="Buat Nasabah" />
+   <Button layoutX="85.0" layoutY="92.0" mnemonicParsing="false" onAction="#onTellerClick" text="Teller" />
+</AnchorPane>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="208.0" prefWidth="289.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ajilaksono.bank.controllers.LoginMachine">
+   <children>
+      <PasswordField fx:id="inputPinLogin" layoutX="70.0" layoutY="104.0" promptText="PIN" />
+      <Button layoutX="167.0" layoutY="142.0" mnemonicParsing="false" onAction="#onMasukClick" text="Masuk" />
+      <ChoiceBox fx:id="inputNomorRekeningLogin" layoutX="70.0" layoutY="38.0" prefWidth="150.0" />
+      <TextField fx:id="inputNamaLogin" editable="false" layoutX="70.0" layoutY="71.0" promptText="Nama Pemilik Rekening" />
+   </children>
+</AnchorPane>
