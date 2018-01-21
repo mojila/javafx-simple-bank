@@ -2,7 +2,6 @@ package com.ajilaksono.bank.controllers;
 
 import com.ajilaksono.bank.models.Inisialisasi;
 import com.ajilaksono.bank.models.Session;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -13,9 +12,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Deposit implements Initializable {
-    Inisialisasi data;
-    Session session;
-    Alert alert;
+    private Inisialisasi data;
+    private Session session;
+    private Alert alert;
 
     @FXML
     private TextField inputSaldoDeposit;
@@ -24,7 +23,7 @@ public class Deposit implements Initializable {
     private TextField inputAmountDeposit;
 
     @FXML
-    void onTabungClick(ActionEvent event) {
+    void onTabungClick() {
         Integer amount = Integer.parseInt(inputAmountDeposit.getText());
 
         try {

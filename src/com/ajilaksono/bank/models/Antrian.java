@@ -14,23 +14,12 @@ public class Antrian {
         return nomorUrut;
     }
 
-    public void setNomorUrut(int nomorUrut) {
-        this.nomorUrut = nomorUrut;
-    }
-
     public int getNomorRekening() {
         return nomorRekening;
-    }
-
-    public void setNomorRekening(int nomorRekening) {
-        this.nomorRekening = nomorRekening;
     }
 
     public String getNama() {
         return nama;
     }
 
-    public void setNama(String nama) {
-        this.nama = nama;
-    }
 }

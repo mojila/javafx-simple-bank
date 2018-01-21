@@ -1,8 +1,8 @@
 package com.ajilaksono.bank.models;
 
 public class Session {
-    public static int nomorRekening;
-    public static int nomorRekeningAntrian;
+    private static int nomorRekening;
+    private static int nomorRekeningAntrian;
 
     public int getNomorRekeningAntrian() {
         return nomorRekeningAntrian;

@@ -4,15 +4,15 @@ import com.ajilaksono.bank.models.Antrian;
 import com.ajilaksono.bank.models.Inisialisasi;
 import com.ajilaksono.bank.models.Nasabah;
 import com.ajilaksono.bank.models.Session;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -37,25 +37,17 @@ public class Teller implements Initializable {
         session = new Session();
         data = new Inisialisasi();
 
-        data.getDataNasabah().forEach((Integer key, Nasabah value) -> {
-            inputNomorRekeningAntrian.getItems().add(value.getNomorRekening());
-        });
+        data.getDataNasabah().forEach((Integer key, Nasabah value) -> inputNomorRekeningAntrian.getItems().add(value.getNomorRekening()));
 
-        data.getDataAntrian().forEach((key, value) -> {
-            inputAntrian.getItems().add(value.getNomorRekening());
-        });
+        data.getDataAntrian().forEach((key, value) -> inputAntrian.getItems().add(value.getNomorRekening()));
 
-        inputAntrian.getSelectionModel().selectedItemProperty().addListener((v, oldValue, newValue) -> {
-            data.getDataAntrian().forEach((Integer key, Antrian value) -> {
-                if (value.getNomorRekening() == newValue) session.setNomorRekeningAntrian(newValue);
-            });
-        });
+        inputAntrian.getSelectionModel().selectedItemProperty().addListener((v, oldValue, newValue) -> data.getDataAntrian().forEach((Integer key, Antrian value) -> {
+            if (value.getNomorRekening() == newValue) session.setNomorRekeningAntrian(newValue);
+        }));
 
-        inputNomorRekeningAntrian.getSelectionModel().selectedItemProperty().addListener((v, oldValue, newValue) -> {
-            data.getDataNasabah().forEach((Integer key, Nasabah value) -> {
-                if (value.getNomorRekening() == newValue) inputNamaAntrian.setText(value.getNama());
-            });
-        });
+        inputNomorRekeningAntrian.getSelectionModel().selectedItemProperty().addListener((v, oldValue, newValue) -> data.getDataNasabah().forEach((Integer key, Nasabah value) -> {
+            if (value.getNomorRekening() == newValue) inputNamaAntrian.setText(value.getNama());
+        }));
     }
 
     @FXML

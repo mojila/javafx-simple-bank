@@ -8,7 +8,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
@@ -19,7 +18,6 @@ import java.util.ResourceBundle;
 public class Machine implements Initializable {
 
     private Session session;
-    private Alert alert;
 
     @FXML
     private Label namaNasabahLabel;
